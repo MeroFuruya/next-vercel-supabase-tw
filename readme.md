@@ -15,3 +15,46 @@
 | 11  | `code .env.example`                                                                                                                                      | Add [example environment variables](.env.example)                                                                                                                                                                                                                                                      |
 | 12  | `echo '!.env.example' >> .gitignore`                                                                                                                     | And include `.env.example` in [.gitignore](.gitignore)                                                                                                                                                                                                                                                 |
 | 12  | `code cspell.json`                                                                                                                                       | Add [cspell configuration](cspell.json). add extra languages if needed ([_documentation_](https://cspell.org/docs/dictionaries/))                                                                                                                                                                      |
+| 13  |                                                                                                                                                          | Setup Github Repository rules (branch protection, required reviews, etc)                                                                                                                                                                                                                               |
+| 14  |                                                                                                                                                          | Setup [Vercel project](https://vercel.com/new) and link the GitHub repository                                                                                                                                                                                                                          |
+| 15  |                                                                                                                                                          | Setup [Supabase project](https://app.supabase.com/projects) and link the GitHub repository                                                                                                                                                                                                             |
+
+
+## GitHub Rules
+|                                           |                     |
+| ----------------------------------------- | ------------------- |
+| Name                                      | default             |
+| enforcement status                        | active              |
+| Bypass                                    | +Dependabot         |
+| Target                                    | Default branch      |
+| Restrict creations                        | `false`             |
+| Restrict updates                          | `false`             |
+| Restrict deletions                        | `true`              |
+| Require linear history                    | `false`             |
+| Require deployments to succeed            | `true`              |
+| Require signed commits                    | `true`              |
+| Require a pull request before merging     | `true`              |
+| Require status checks to pass             | `true`              |
+| Require status checks to pass - checks    | ci (GitHub Actions) |
+| Block force pushes                        | `true`              |
+| Automatically request Copilot code review | `true`              |
+
+
+|                                           |              |
+| ----------------------------------------- | ------------ |
+| Name                                      | all          |
+| enforcement status                        | active       |
+| Bypass                                    |              |
+| Target                                    | All branches |
+| Restrict creations                        | `false`      |
+| Restrict updates                          | `false`      |
+| Restrict deletions                        | `false`      |
+| Require linear history                    | `false`      |
+| Require deployments to succeed            | `false`      |
+| Require signed commits                    | `true`       |
+| Require a pull request before merging     | `false`      |
+| Require status checks to pass             | `false`      |
+| Block force pushes                        | `true`       |
+| Automatically request Copilot code review | `false`      |
+
+
